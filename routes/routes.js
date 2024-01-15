@@ -24,6 +24,7 @@ router.post('/article', async (req, res) => {
         body:req.body.body,
         author: req.body.author,
 
+
     })
 
     try {
@@ -65,7 +66,16 @@ router.get('/getOne/:id', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-
+//Get article by ID Method
+router.get('/getOneArticle/:id', async (req, res) => {
+    try{
+        const data = await Article.findById(req.params.id);
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 //Update by ID Method
 router.patch('/update/:id', async (req, res) => {
     try {
