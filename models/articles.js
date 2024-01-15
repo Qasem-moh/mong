@@ -12,6 +12,10 @@ const articalesSchema = new mongoose.Schema({
     author:{
         required:true,
         type:String
+    },
+    typeB:{
+        required:true,
+        type:String
     }
 })
 
