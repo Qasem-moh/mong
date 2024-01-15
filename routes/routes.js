@@ -105,4 +105,15 @@ router.delete('/delete/:id', async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 })
+//Delete article by ID Method
+router.delete('/deleteArticle/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const data = await Article.findByIdAndDelete(id)
+        res.send(`Document with ${data.title} has been deleted.. and ID is ${data._id}`)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
 module.exports = router;
