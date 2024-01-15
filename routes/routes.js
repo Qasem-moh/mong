@@ -45,6 +45,15 @@ router.get('/getAll', async (req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+router.get('/getAllArticles', async (req, res) => {
+    try{
+        const data = await Article.find();
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 
 //Get by ID Method
 router.get('/getOne/:id', async (req, res) => {
